@@ -9,4 +9,5 @@ export interface AuthSession {
   user: AuthUser
   expiresAt: string
   token: string
+  validatedCount: number
 }

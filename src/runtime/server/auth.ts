@@ -31,3 +31,7 @@ export const verifySession = (token: string): boolean => {
   console.log('Validated count:', validatedCounts['demo-session-token'])
   return token === 'demo-session-token'
 }
+
+export const getValidatedCount = (): any => {
+  return validatedCounts
+}
