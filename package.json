@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-starter-module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cd playground && nuxt dev",
+    "build": "cd playground && nuxt build",
+    "test": "cd playground && nuxt dev",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "cookie": "^0.5.0"
+  },
+  "devDependencies": {
+    "@nuxt/kit": "^3.16.1",
+    "nuxt": "^3.16.1",
+    "vue": "^3.3.0"
+  },
+  "files": ["src"]
+}
