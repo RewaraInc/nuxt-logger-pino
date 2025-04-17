@@ -1,1 +1,0 @@
-export { default } from "file:///E:/workspace/work/Work-2025-XCallAI/nuxtStarterModule/nuxt-starter-module/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"

@@ -1,56 +1,67 @@
-# Nuxt Starter Module
+# Nuxt Pino Logger Playground
 
-A complete starter module with authentication and testing capabilities.
+This playground demonstrates the usage of the `nuxt-pino-klogger` module.
 
-## Features
+## Usage Examples
 
-- Secure client-side authentication
-- Cookie-based sessions
-- Protected API routes
-- Example components and pages
-- Ready-to-use playground
+### 1. Client-side Logging
+```vue
+<script setup>
+const { $logger } = useNuxtApp()
+$logger.info('Client message')
+</script>
+```
 
-## If you make a change in module, you need to run 'npm install'. 
-### You may also need to cleanup a few folders using cleanup.bat 
+### 2. Server API Routes
+```ts
+// server/api/example.ts
+export default defineEventHandler((event) => {
+  event.context.logger.info('API called')
+})
+```
 
-## Getting Started
+### 3. Server Middleware
+```ts
+// server/middleware/log.ts
+export default defineEventHandler((event) => {
+  event.context.logger.info(`Request to ${event.path}`)
+})
+```
+
+### 4. Server Utilities
+```ts
+import { logger } from '#pino-klogger'
+logger.info('Server started')
+```
+
+### 5. Composable Usage
+```ts
+// composables/useLogger.ts
+export function useLogger() {
+  const { $logger } = useNuxtApp()
+  return $logger
+}
+```
+
+## Features Demonstrated
+
+1. Client-side logging with different levels
+2. Server-side request-scoped logging
+3. Error logging in API routes
+4. Middleware logging
+5. Composable integration
+6. Type-safe usage
+
+## Running the Playground
 
 1. Install dependencies:
 ```bash
 npm install
+```
+
+2. Start the development server:
+```bash
 npm run dev
 ```
 
-2. Test credentials:
-- Username: `demo`
-- Password: `demo123`
-
-## Structure
-
-- `src/` - Module code
-- `playground/` - Development environment
-
-## Endpoints
-
-- `POST /api/login` - Authenticate user
-- `POST /api/logout` - End session
-- `GET /api/session` - Check auth status
-
-## Publishing
-
-```bash
-npm run build
-npm publish
-```
-
-
-# Set permissions
-```
-chmod -R 755 nuxt-starter-module
-
-echo "Nuxt starter module created successfully!"
-echo "To get started:"
-echo "1. cd nuxt-starter-module"
-echo "2. npm install"
-echo "3. npm run dev"
-```
+3. Visit `http://localhost:3000` and interact with the buttons to see logging in action.
